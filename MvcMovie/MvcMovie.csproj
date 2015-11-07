@@ -175,6 +175,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511052107156_InitialCreate.cs" />
+    <Compile Include="Migrations\201511052107156_InitialCreate.Designer.cs">
+      <DependentUpon>201511052107156_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511071223370_Initial.cs" />
+    <Compile Include="Migrations\201511071223370_Initial.Designer.cs">
+      <DependentUpon>201511071223370_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511071241045_Rating.cs" />
+    <Compile Include="Migrations\201511071241045_Rating.Designer.cs">
+      <DependentUpon>201511071241045_Rating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511071252135_DataAnnotations.cs" />
+    <Compile Include="Migrations\201511071252135_DataAnnotations.Designer.cs">
+      <DependentUpon>201511071252135_DataAnnotations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -192,6 +209,17 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\cldr.js" />
+    <Content Include="Scripts\cldr\event.js" />
+    <Content Include="Scripts\cldr\supplemental.js" />
+    <Content Include="Scripts\cldr\unresolved.js" />
+    <Content Include="Scripts\globalize.js" />
+    <Content Include="Scripts\globalize\currency.js" />
+    <Content Include="Scripts\globalize\date.js" />
+    <Content Include="Scripts\globalize\message.js" />
+    <Content Include="Scripts\globalize\number.js" />
+    <Content Include="Scripts\globalize\plural.js" />
+    <Content Include="Scripts\globalize\relative-time.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -255,6 +283,20 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201511052107156_InitialCreate.resx">
+      <DependentUpon>201511052107156_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511071223370_Initial.resx">
+      <DependentUpon>201511071223370_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511071241045_Rating.resx">
+      <DependentUpon>201511071241045_Rating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511071252135_DataAnnotations.resx">
+      <DependentUpon>201511071252135_DataAnnotations.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
