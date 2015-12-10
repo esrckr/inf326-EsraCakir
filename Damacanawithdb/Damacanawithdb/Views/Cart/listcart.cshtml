@@ -1,0 +1,31 @@
+﻿@model   List<Damacanawithdb.Models.cart>
+@{
+    ViewBag.Title = "listcart";
+}
+
+
+
+<h2 style="text-align:center; color:forestgreen" class="alert alert-success" role="alert">CART LIST</h2>
+<br />
+
+<div>
+
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <p> <img src="http://www.graphicsbeam.com/wp-content/uploads/2012/04/Shopping-Cart-Icon-with-PSD-and-PNG-Format.png" width=255 height=255></p>
+            <p class="alert alert-warning" role="alert" style="text-align:center">
+                @item.id
+
+            </p>
+            <p class="alert alert-warning" role="alert" style="text-align:center">
+          
+                @Html.ActionLink("Edit", "updateproduct", new { id = item.id })                             |
+                @Html.ActionLink("Delete", "deleteproduct", new { id = item.id })
+
+            </p>
+
+        </div>
+    }
+
+</div>

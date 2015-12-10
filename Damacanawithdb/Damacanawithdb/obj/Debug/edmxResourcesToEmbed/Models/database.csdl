@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db_damacanaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="cart">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="user" Relationship="Self.FK_cart_user" FromRole="cart" ToRole="user" />
+    <NavigationProperty Name="product" Relationship="Self.FK_product_cart" FromRole="cart" ToRole="product" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cardId" Type="Int32" />
+    <Property Name="purchaseId" Type="Int32" />
+    <Property Name="number" Type="Int32" />
+    <NavigationProperty Name="cart" Relationship="Self.FK_product_cart" FromRole="product" ToRole="cart" />
+    <NavigationProperty Name="purchase" Relationship="Self.FK_product_purchase" FromRole="product" ToRole="purchase" />
+  </EntityType>
+  <EntityType Name="purchase">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userId" Type="Int32" Nullable="false" />
+    <Property Name="createdon" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="totalprice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="product" Relationship="Self.FK_product_purchase" FromRole="purchase" ToRole="product" />
+    <NavigationProperty Name="user" Relationship="Self.FK_purchase_user" FromRole="purchase" ToRole="user" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="cart" Relationship="Self.FK_cart_user" FromRole="user" ToRole="cart" />
+    <NavigationProperty Name="purchase" Relationship="Self.FK_purchase_user" FromRole="user" ToRole="purchase" />
+  </EntityType>
+  <Association Name="FK_cart_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="cart" Type="Self.cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cart">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_product_cart">
+    <End Role="cart" Type="Self.cart" Multiplicity="0..1" />
+    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cart">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="cardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_product_purchase">
+    <End Role="purchase" Type="Self.purchase" Multiplicity="0..1" />
+    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="purchase">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="purchaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_purchase_user">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="purchase">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db_damacanaEntities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cart" EntityType="Self.cart" />
+    <EntitySet Name="product" EntityType="Self.product" />
+    <EntitySet Name="purchase" EntityType="Self.purchase" />
+    <EntitySet Name="user" EntityType="Self.user" />
+    <AssociationSet Name="FK_cart_user" Association="Self.FK_cart_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="cart" EntitySet="cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK_product_cart" Association="Self.FK_product_cart">
+      <End Role="cart" EntitySet="cart" />
+      <End Role="product" EntitySet="product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_product_purchase" Association="Self.FK_product_purchase">
+      <End Role="purchase" EntitySet="purchase" />
+      <End Role="product" EntitySet="product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_purchase_user" Association="Self.FK_purchase_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="purchase" EntitySet="purchase" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

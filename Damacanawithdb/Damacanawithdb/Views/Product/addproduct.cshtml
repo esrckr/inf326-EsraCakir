@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "addproduct";
+}
+
+<br />
+<br />
+<h2 style="text-align:center; color:forestgreen" class="alert alert-success" role="alert">ADD PRODUCT </h2>
+
+<form action="/Product/saveproduct" method="post">
+    <br /><br />
+    <label> NAME:</label>
+    <input type="text" name="Name" />
+    <br />
+    <label>PRICE:</label>
+    <input type="text" name="Price" />
+    <br /><br />
+    <a href="@Url.Action("listproduct")">
+        <input type="submit" value="save" class="btn btn-default"  />
+    </a>
+  
+</form>

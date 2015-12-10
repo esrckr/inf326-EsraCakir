@@ -1,0 +1,24 @@
+﻿@model   List<Damacanawithdb.Models.user>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron" style="color:darkblue">
+    <h1>WELCOME</h1>
+    <p class="lead">This is a great idea to get bottled from the internet </p>
+</div>
+
+<div class="row">
+    <br />
+    
+    
+
+    <form action="/Home/Access" method="post"  style="text-align:center; color:forestgreen" class="alert alert-success" role="alert">
+   
+        <h2 style="text-align:center; color:forestgreen" class="alert alert-success" role="alert">ACCESS </h2>
+        <input type="text" name="Name" />
+        <br />
+            <input style="background-color: ghostwhite" type="submit" value="Access" class="btn btn-default" />
+        
+    </form>
+</div>

@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "saveuser";
+}
+
+
+<br />
+<br />
+<h2 style="text-align:center; color:forestgreen" class="alert alert-success" role="alert">SAVE USER</h2>
+
+@using (Html.BeginForm("listuser", "User", FormMethod.Post))
+{<div class="alert alert-warning" role="alert"> <b> Success :) </b></div>}
+<a href="@Url.Action("listuser")"> GO TO LIST OF USER </a>
+

@@ -1,0 +1,11 @@
+﻿
+@model Damacanawithdb.Models.purchase
+@{
+    ViewBag.Title = "SavePurchase";
+}
+
+<p style='font-size:35px; color:lawngreen'>SavePurchase</p>
+
+@using (Html.BeginForm("listpurchase", "Purchase", FormMethod.Post))
+{<div class=" alert alert-success" role="alert"> <b> Success :) </b></div>}
+you bought this cart !<a href="@Url.Action("listpurchase")"> Go to purchases List</a>

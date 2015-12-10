@@ -1,0 +1,22 @@
+﻿@model   Damacanawithdb.Models.product
+@{
+    ViewBag.Title = "updateproduct";
+}
+
+
+<br />
+<br />
+<h2 style="text-align:center; color:forestgreen" class="alert alert-success" role="alert">UPDATE PRODUCT</h2>
+
+<form action="/Product/saveupdate" method="post">
+    <br /><br />
+    <label> NAME:</label>
+    <input type="text" name="Name" />
+    <br />
+    <label>PRICE:</label>
+    <input type="text" name="Price" />
+    <br /><br />
+ 
+    <input type="submit" value="UPDATE" class="btn btn-default" />
+
+</form>

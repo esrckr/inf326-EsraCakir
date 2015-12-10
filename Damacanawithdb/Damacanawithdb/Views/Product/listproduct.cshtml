@@ -1,0 +1,32 @@
+﻿
+@model   List<Damacanawithdb.Models.product>
+
+@{
+    ViewBag.Title = "listproduct";
+}
+<br/>
+
+<h2 style="text-align:center; color:forestgreen" class="alert alert-success" role="alert">PRODUCT LIST</h2>
+<br />
+
+<div>
+
+    @foreach (var item in Model)
+    {
+    <div class="col-md-3">
+        <p> <img src="C:\Users\cakir\Desktop\damacana1.png" width=255 height=255></p>
+        <p class="alert alert-warning" role="alert" style="text-align:center">
+        ID:@item.id:  NAME: @item.name : PRICE:@item.price TL : CARTID :@item.cardId number :@item.number
+
+        </p>
+        <p class="alert alert-warning" role="alert" style="text-align:center">
+            @Html.ActionLink("Add to Cart", "addtocart", new { id = item.id })                             |
+            @Html.ActionLink("Edit", "updateproduct", new { id = item.id })                             |
+             @Html.ActionLink("Delete", "deleteproduct", new { id = item.id })
+
+        </p>
+
+    </div>
+    }
+
+</div>

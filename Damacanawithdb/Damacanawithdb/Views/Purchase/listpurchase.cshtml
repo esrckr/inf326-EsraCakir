@@ -1,0 +1,33 @@
+﻿
+@model   List<Damacanawithdb.Models.purchase>
+@{
+    ViewBag.Title = "listpurchase";
+}
+
+
+<br />
+
+<h2 style="text-align:center; color:forestgreen" class="alert alert-success" role="alert">PURCHASE LIST</h2>
+<br />
+
+<div>
+
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <p> <img src="http://www.iconshock.com/img_jpg/PLASTICXP/accounting/jpg/256/purchase_icon.jpg" width=255 height=255></p>
+            <p class="alert alert-warning" role="alert" style="text-align:center">
+                ID:@item.id:  TOTAL PRICE:@item.totalprice TL : userID :@item.userId TIME :@item.createdon
+
+            </p>
+          
+
+                             
+                
+
+          
+
+        </div>
+    }
+
+</div>

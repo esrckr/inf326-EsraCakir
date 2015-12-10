@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "saveproduct";
+}
+
+
+<br />
+<br />
+<h2 style="text-align:center; color:forestgreen" class="alert alert-success" role="alert">SAVE PRODUCT</h2>
+
+@using (Html.BeginForm("listproduct", "Product", FormMethod.Post))
+{<div class="alert alert-warning" role="alert"> <b> Success :) </b></div>}
+<a href="@Url.Action("listproduct")"> GO TO LIST OF PRODUCT </a>

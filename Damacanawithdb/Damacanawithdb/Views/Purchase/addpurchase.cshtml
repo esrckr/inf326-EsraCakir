@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "addpurchase";
+}
+
+<h2>addpurchase</h2>
+
+
+@{
+    ViewBag.Title = "saveproduct";
+}
+
+
+<br />
+<br />
+<h2 style="text-align:center; color:forestgreen" class="alert alert-success" role="alert">VALIDAT PURCHASE ??</h2>
+
+@using (Html.BeginForm("savepurchase", "Purchase", FormMethod.Post))
+{<div class="alert alert-warning" role="alert"> <b> Success :) </b></div>}
+<a href="@Url.Action("savepurchase")"> YES </a>

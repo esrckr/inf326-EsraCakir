@@ -1,0 +1,35 @@
+﻿@model   List<Damacanawithdb.Models.product>
+@{
+    ViewBag.Title = "detailcart";
+}
+
+
+<br />
+
+<h2 style="text-align:center; color:forestgreen" class="alert alert-success" role="alert">CART DETAIL</h2>
+<br />
+<a href="@Url.Action("addpurchase","Purchase")">
+        <h3 style="text-align:center; color:forestgreen" class="alert alert-success" role="alert">BUY NOW </h3>
+    </a>
+<br />
+<div>
+
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <p> <img src="C:\Users\cakir\Desktop\damacana1.png" width=255 height=255></p>
+            <p class="alert alert-warning" role="alert" style="text-align:center">
+                ID:@item.id:  NAME: @item.name : PRICE:@item.price TL   ID @item.cardId
+
+            </p>
+            <p class="alert alert-warning" role="alert" style="text-align:center">
+                <a href="@Url.Action("removefromcart","Product", new { name = item.name })">Remove from cart</a>
+                                       |
+               
+
+            </p>
+
+        </div>
+    }
+
+</div>

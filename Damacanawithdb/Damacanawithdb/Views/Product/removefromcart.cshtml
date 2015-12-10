@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "removefromcart";
+}
+
+<br />
+<br />
+<h2 style="text-align:center; color:forestgreen" class="alert alert-success" role="alert">REMOVE FROM CART</h2>
+
+@using (Html.BeginForm("listproductofcart", "Cart", FormMethod.Post))
+{<div class="alert alert-warning" role="alert"> <b> Success :) </b></div>}
+<a href="@Url.Action("listproductofcart","Cart")">GO TO CART DETAIL</a>    product
